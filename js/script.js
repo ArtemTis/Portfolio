@@ -136,8 +136,10 @@ timerFunc();
 const scrollFunc = () => {
     const links = document.querySelectorAll('.menu-list__link');
     const btn = document.querySelector('.main__button');
+    const arrow = document.querySelector('.main__scroll');
+    const logo = document.querySelector('.header__logo');
 
-    const allLinks = [...links, btn];
+    const allLinks = [...links, btn, arrow, logo];
 
     allLinks.forEach(link => {
         link.addEventListener('click', (event) => {
@@ -150,8 +152,8 @@ const scrollFunc = () => {
             if (section) {
                 seamless.scrollIntoView(section, {
                     behavior: "smooth",
-                    block: "center",
-                    inline: "center",
+                    block: "start",
+                    inline: "start",
                 });
                 // section.scrollIntoView({
                 //     block: 'start',
