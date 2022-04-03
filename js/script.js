@@ -99,17 +99,19 @@ const timerFunc = () => {
     
     //const deadline = '31 march 2022';
 
-    const judgmentDay = new Date().getDate() + 2;
-    const nonExistentDay = new Date(`${judgmentDay} march 2022`);  
-    timerText.textContent = `ДО ${judgmentDay} ЧИСЛА СКИДКА 20% НА ВСЕ УСЛУГИ`;
+    const year = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 
+    const judgmentDay = new Date().getDate() + 2;
+    const judgmentMonth = new Date().getMonth();
+    const nonExistentDay = new Date(`${judgmentDay} ${year[judgmentMonth]} 2022`);
+    timerText.textContent = `ДО ${judgmentDay} ЧИСЛА СКИДКА 20% НА ВСЕ УСЛУГИ`;
     let interval;
 
     const updateClock = () => {
         const date = new Date().getTime();
         const dateDeadline = new Date(nonExistentDay).getTime();
-        //const timeRemaining = (dateDeadline - date) / 1000;
-        const timeRemaining = (nonExistentDay - date) / 1000;
+        const timeRemaining = (dateDeadline - date) / 1000;
+        //const timeRemaining = (nonExistentDay - date) / 1000;
 
         //const days = Math.floor(timeRemaining / 60 / 60 / 24);
         const hours = Math.floor(timeRemaining / 60 / 60);
